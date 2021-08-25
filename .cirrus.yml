@@ -25,8 +25,8 @@ task:
       bash scripts/setup/install_android_sdk.sh >/dev/null
       mkdir -p /tmp/rom
       cd /tmp/rom
-      repo init -q --no-repo-verify --depth=1 -u git://github.com/xdroid-CAF/xd_manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
-      git clone https://github.com/ItoRenz/local_manifest --depth=1 -b xdroid .repo/local_manifests
+      repo init -q --no-repo-verify --depth=1 -u git://github.com/ConquerOS/manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
+      git clone https://github.com/ItoRenz/local_manifest --depth=1 -b conquer .repo/local_manifests
       repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j30
       export CCACHE_DIR=~/tmp/ccache
       export USE_CCACHE=1 && export CCACHE_EXEC=/usr/bin/ccache && ccache -M 50G 
@@ -35,7 +35,7 @@ task:
       ccache -o compression=true
       ccache -z
       . build/envsetup.sh
-      lunch xdroid_rova-userdebug
+      lunch conquer_rova-userdebug
       make sepolicy && make bootimage && make init
       ccache -s
       up() {
