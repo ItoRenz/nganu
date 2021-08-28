@@ -35,7 +35,7 @@ task:
       ccache -o compression=true
       ccache -z
       . build/envsetup.sh
-      lunch nad_rova-user
+      lunch nad_rova-userdebug
       make sepolicy && make bootimage && make init
       ccache -s
       up() {
