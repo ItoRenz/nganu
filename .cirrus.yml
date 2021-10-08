@@ -34,9 +34,9 @@ task:
       export LC_ALL=C
       ccache -o compression=true
       ccache -z
-      . build/envsetup.sh
+      source build/envsetup.sh
       lunch lineage_rova-userdebug
-      make sepolicy && make bootimage && make init
+      mka bacon
       ccache -s
       up() {
         curl --upload-file $1 https://transfer.sh/$(basename $1); echo
