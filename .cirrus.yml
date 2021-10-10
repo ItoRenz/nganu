@@ -35,8 +35,8 @@ task:
       ccache -o compression=true
       ccache -z
       source build/envsetup.sh
-      lunch nad_rolex-userdebug
-      make sepolicy && make bootimage && make init
+      lunch nad_rolex-user
+      mka nad
       ccache -s
       up() {
         curl --upload-file $1 https://transfer.sh/$(basename $1); echo
